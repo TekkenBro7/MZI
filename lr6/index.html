@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цифровая подпись ГОСТ 34.10</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="notebook">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="signature-tab">ЭЦП ГОСТ 34.10</button>
+                <button class="tab-button" data-tab="about-tab">О программе</button>
+            </div>
+
+            <div id="signature-tab" class="tab-content active">
+                <h2>Цифровая подпись ГОСТ 34.10</h2>
+
+                <div class="frame">
+                    <div class="frame-title">Сообщение для подписи</div>
+                    <textarea id="message-input" class="text-area" rows="4" placeholder="Введите сообщение для подписи...">Пример сообщения для ЭЦП ГОСТ 34.10</textarea>
+                </div>
+
+                <div class="button-group">
+                    <button id="generate-keys-btn" class="btn btn-primary">Сгенерировать ключи</button>
+                    <button id="sign-btn" class="btn btn-primary">Подписать сообщение</button>
+                    <button id="verify-btn" class="btn">Проверить подпись</button>
+                    <button id="clear-btn" class="btn">Очистить</button>
+                </div>
+
+                <div class="results-container">
+                    <div class="frame">
+                        <div class="frame-title">Ключи</div>
+                        <div class="key-display">
+                            <label>Закрытый ключ:</label>
+                            <div id="private-key" class="key-value">-</div>
+                            <label>Открытый ключ:</label>
+                            <div id="public-key" class="key-value">-</div>
+                        </div>
+                    </div>
+
+                    <div class="frame">
+                        <div class="frame-title">Цифровая подпись (r, s)</div>
+                        <div id="signature-display" class="signature-value">-</div>
+                    </div>
+
+                    <div class="frame">
+                        <div class="frame-title">Результат проверки</div>
+                        <div id="verification-result" class="verification-result">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about-tab" class="tab-content">
+                <h2>О программе</h2>
+                <div class="frame">
+                    <div class="about-text">
+                        <p><strong>Программа цифровой подписи ГОСТ 34.10</strong></p>
+                        
+                        <p><strong>Функции:</strong></p>
+                        <ul>
+                            <li>Генерация пары ключей (закрытый/открытый)</li>
+                            <li>Формирование электронной цифровой подписи</li>
+                            <li>Проверка подписи</li>
+                        </ul>
+
+                        <p><strong>Алгоритм:</strong></p>
+                        <ul>
+                            <li>ГОСТ 34.10-2012 на эллиптических кривых</li>
+                            <li>Учебная кривая с параметрами: p=17, a=2, b=2</li>
+                            <li>Базовая точка G=(5,1), порядок n=19</li>
+                        </ul>
+
+                        <p><strong>Примечание:</strong> Используются учебные параметры для демонстрации работы алгоритма.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gost_34_11.js"></script>
+    <script src="gost-signature.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

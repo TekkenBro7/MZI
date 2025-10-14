@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контроль целостности сообщений - Хеш-функции</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="notebook">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="hash-tab">Хеширование</button>
+                <button class="tab-button" data-tab="about-tab">О программе</button>
+            </div>
+
+            <div id="hash-tab" class="tab-content active">
+                <h2>Вычисление хеш-сумм</h2>
+
+                <div class="frame">
+                    <div class="frame-title">Текст сообщения</div>
+                    <label>Введите текст для хеширования (можно оставить пустым):</label>
+                    <textarea id="text-input" class="text-area" rows="8" placeholder="Введите текст здесь..."></textarea>
+                </div>
+
+                <div class="frame">
+                    <div class="frame-title">Алгоритм хеширования</div>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="algorithm" value="gost_512" checked>
+                            <span class="radio-custom"></span>
+                            ГОСТ 34.11 (512 бит)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="algorithm" value="gost_256">
+                            <span class="radio-custom"></span>
+                            ГОСТ 34.11 (256 бит)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="algorithm" value="sha1">
+                            <span class="radio-custom"></span>
+                            SHA-1 (160 бит)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button id="calculate-btn" class="btn btn-primary">Вычислить хеш</button>
+                    <button id="clear-btn" class="btn">Очистить</button>
+                </div>
+
+                <div id="info-label" class="info-label"></div>
+
+                <div class="frame">
+                    <div class="frame-title">Результат хеширования</div>
+                    <textarea id="result-text" class="text-area result-area" rows="10" readonly></textarea>
+                </div>
+            </div>
+
+            <div id="about-tab" class="tab-content">
+                <h2>О программе</h2>
+                <div class="frame">
+                    <div class="about-text">
+                        <p><strong>Программа контроля целостности сообщений</strong></p>
+                        
+                        <p><strong>Функции:</strong></p>
+                        <ul>
+                            <li>Вычисление хеш-сумм (ГОСТ 34.11 и SHA-1)</li>
+                        </ul>
+
+                        <p><strong>Алгоритмы:</strong></p>
+                        <ul>
+                            <li>ГОСТ 34.11-2012 (256 и 512 бит)</li>
+                            <li>SHA-1 (160 бит)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="algorithms/gost_34_11.js"></script>
+    <script src="algorithms/sha1.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
