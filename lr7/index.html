@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шифрование Эль-Гамаля на эллиптических кривых</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="notebook">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="encryption-tab">Шифрование Эль-Гамаля</button>
+                <button class="tab-button" data-tab="about-tab">О программе</button>
+            </div>
+
+            <div id="encryption-tab" class="tab-content active">
+                <h2>Шифрование Эль-Гамаля на эллиптических кривых</h2>
+
+                <div class="frame">
+                    <div class="frame-title">Сообщение для шифрования</div>
+                    <textarea id="message-input" class="text-area" rows="4" placeholder="Введите сообщение для шифрования...">hello</textarea>
+                </div>
+
+                <div class="button-group">
+                    <button id="generate-keys-btn" class="btn btn-primary">Сгенерировать ключи</button>
+                    <button id="encrypt-btn" class="btn btn-primary">Зашифровать сообщение</button>
+                    <button id="decrypt-btn" class="btn">Расшифровать сообщение</button>
+                    <button id="clear-btn" class="btn">Очистить</button>
+                </div>
+
+                <div class="results-container">
+                    <div class="frame">
+                        <div class="frame-title">Ключи</div>
+                        <div class="key-display">
+                            <label>Закрытый ключ:</label>
+                            <div id="private-key" class="key-value">-</div>
+                            <label>Открытый ключ:</label>
+                            <div id="public-key" class="key-value">-</div>
+                        </div>
+                    </div>
+
+                    <div class="frame">
+                        <div class="frame-title">Зашифрованное сообщение</div>
+                        <div class="encrypted-display">
+                            <label>C1:</label>
+                            <div id="c1-display" class="key-value">-</div>
+                            <label>C2:</label>
+                            <div id="c2-display" class="key-value">-</div>
+                        </div>
+                    </div>
+
+                    <div class="frame">
+                        <div class="frame-title">Результат расшифрования</div>
+                        <div id="decryption-result" class="verification-result">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about-tab" class="tab-content">
+                <h2>О программе</h2>
+                <div class="frame">
+                    <div class="about-text">
+                        <p><strong>Программа шифрования Эль-Гамаля на эллиптических кривых</strong></p>
+                        
+                        <p><strong>Функции:</strong></p>
+                        <ul>
+                            <li>Генерация пары ключей (закрытый/открытый)</li>
+                            <li>Шифрование сообщений на эллиптической кривой</li>
+                            <li>Расшифрование сообщений</li>
+                        </ul>
+
+                        <p><strong>Алгоритм:</strong></p>
+                        <ul>
+                            <li>Шифрование Эль-Гамаля на эллиптических кривых</li>
+                            <li>Хеширование: ГОСТ 34.11-2012 (Streebog)</li>
+                            <li>Учебная кривая с параметрами: p=17, a=2, b=2</li>
+                            <li>Базовая точка G=(5,1), порядок n=19</li>
+                        </ul>
+
+                        <p><strong>Примечание:</strong> Используются учебные параметры для демонстрации работы алгоритма.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="gost_34_11.js"></script>
+    <script src="elgamal-encryption.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
